@@ -1,0 +1,92 @@
+[2025-03-01T19:42:11.108+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: new_messages.messages_load manual__2025-03-01T19:41:28.546808+00:00 [queued]>
+[2025-03-01T19:42:11.865+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: new_messages.messages_load manual__2025-03-01T19:41:28.546808+00:00 [queued]>
+[2025-03-01T19:42:11.982+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2025-03-01T19:42:16.502+0000] {taskinstance.py:1382} INFO - Executing <Task(DockerOperator): messages_load> on 2025-03-01 19:41:28.546808+00:00
+[2025-03-01T19:42:16.923+0000] {standard_task_runner.py:57} INFO - Started process 2581 to run task
+[2025-03-01T19:42:17.044+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'new_messages', 'messages_load', 'manual__2025-03-01T19:41:28.546808+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/mess_cluster.py', '--cfg-path', '/tmp/tmpuumelrbd']
+[2025-03-01T19:42:17.216+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask messages_load
+[2025-03-01T19:42:21.382+0000] {task_command.py:416} INFO - Running <TaskInstance: new_messages.messages_load manual__2025-03-01T19:41:28.546808+00:00 [running]> on host 8ddc34d43e1e
+[2025-03-01T19:42:25.491+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='new_messages' AIRFLOW_CTX_TASK_ID='messages_load' AIRFLOW_CTX_EXECUTION_DATE='2025-03-01T19:41:28.546808+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-01T19:41:28.546808+00:00'
+[2025-03-01T19:42:26.844+0000] {docker.py:367} INFO - Starting docker container from image messages-loader:latest
+[2025-03-01T19:50:41.079+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2025-03-01T19:50:41.263+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+[2025-03-01T19:50:41.265+0000] {docker.py:438} INFO - response = conn.getresponse()
+[2025-03-01T19:50:41.273+0000] {docker.py:438} INFO -                ^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.287+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+[2025-03-01T19:50:41.292+0000] {docker.py:438} INFO - httplib_response = super().getresponse()
+[2025-03-01T19:50:41.294+0000] {docker.py:438} INFO -                        ^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.306+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 1430, in getresponse
+[2025-03-01T19:50:41.308+0000] {docker.py:438} INFO - response.begin()
+[2025-03-01T19:50:41.344+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+[2025-03-01T19:50:41.352+0000] {docker.py:438} INFO - version, status, reason = self._read_status()
+[2025-03-01T19:50:41.364+0000] {docker.py:438} INFO -                               ^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.410+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/http/client.py", line 292, in _read_status
+[2025-03-01T19:50:41.432+0000] {docker.py:438} INFO - line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+[2025-03-01T19:50:41.434+0000] {docker.py:438} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.470+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+[2025-03-01T19:50:41.474+0000] {docker.py:438} INFO - return self._sock.recv_into(b)
+[2025-03-01T19:50:41.484+0000] {docker.py:438} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.486+0000] {docker.py:438} INFO - TimeoutError: timed out
+[2025-03-01T19:50:41.493+0000] {docker.py:438} INFO - 
+[2025-03-01T19:50:41.725+0000] {docker.py:438} INFO - The above exception was the direct cause of the following exception:
+[2025-03-01T19:50:41.732+0000] {docker.py:438} INFO - 
+[2025-03-01T19:50:41.763+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2025-03-01T19:50:41.766+0000] {docker.py:438} INFO - File "/workdir/Parsing.py", line 53, in <module>
+[2025-03-01T19:50:41.769+0000] {docker.py:438} INFO - driver = webdriver.Chrome(options=chrome_options)
+[2025-03-01T19:50:41.776+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.782+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py", line 45, in __init__
+[2025-03-01T19:50:41.822+0000] {docker.py:438} INFO -     super().__init__(
+[2025-03-01T19:50:41.829+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py", line 66, in __init__
+[2025-03-01T19:50:41.831+0000] {docker.py:438} INFO -     super().__init__(command_executor=executor, options=options)
+[2025-03-01T19:50:41.833+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 250, in __init__
+[2025-03-01T19:50:41.837+0000] {docker.py:438} INFO - self.start_session(capabilities)
+[2025-03-01T19:50:41.849+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 342, in start_session
+[2025-03-01T19:50:41.851+0000] {docker.py:438} INFO - response = self.execute(Command.NEW_SESSION, caps)["value"]
+[2025-03-01T19:50:41.864+0000] {docker.py:438} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.876+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 427, in execute
+[2025-03-01T19:50:41.883+0000] {docker.py:438} INFO - response = self.command_executor.execute(driver_command, params)
+[2025-03-01T19:50:41.905+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.927+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 404, in execute
+[2025-03-01T19:50:41.967+0000] {docker.py:438} INFO - return self._request(command_info[0], url, body=data)
+[2025-03-01T19:50:41.970+0000] {docker.py:438} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:41.971+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 428, in _request
+[2025-03-01T19:50:41.998+0000] {docker.py:438} INFO - response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+[2025-03-01T19:50:42.004+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.009+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 143, in request
+[2025-03-01T19:50:42.013+0000] {docker.py:438} INFO - return self.request_encode_body(
+[2025-03-01T19:50:42.032+0000] {docker.py:438} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.039+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+[2025-03-01T19:50:42.044+0000] {docker.py:438} INFO - return self.urlopen(method, url, **extra_kw)
+[2025-03-01T19:50:42.054+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.305+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 443, in urlopen
+[2025-03-01T19:50:42.333+0000] {docker.py:438} INFO - response = conn.urlopen(method, u.request_uri, **kw)
+[2025-03-01T19:50:42.345+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.366+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+[2025-03-01T19:50:42.369+0000] {docker.py:438} INFO -     retries = retries.increment(
+[2025-03-01T19:50:42.397+0000] {docker.py:438} INFO -               ^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.432+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+[2025-03-01T19:50:42.461+0000] {docker.py:438} INFO - raise reraise(type(error), error, _stacktrace)
+[2025-03-01T19:50:42.462+0000] {docker.py:438} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.473+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+[2025-03-01T19:50:42.481+0000] {docker.py:438} INFO - raise value
+[2025-03-01T19:50:42.484+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+[2025-03-01T19:50:42.487+0000] {docker.py:438} INFO - response = self._make_request(
+[2025-03-01T19:50:42.489+0000] {docker.py:438} INFO -                ^^^^^^^^^^^^^^^^^^^
+[2025-03-01T19:50:42.490+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+[2025-03-01T19:50:42.492+0000] {docker.py:438} INFO -     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+[2025-03-01T19:50:42.505+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+[2025-03-01T19:50:42.514+0000] {docker.py:438} INFO - raise ReadTimeoutError(
+[2025-03-01T19:50:42.533+0000] {docker.py:438} INFO - urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=45243): Read timed out. (read timeout=120)
+[2025-03-01T19:51:04.929+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2025-03-01T19:51:05.348+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=new_messages, task_id=messages_load, execution_date=20250301T194128, start_date=20250301T194211, end_date=20250301T195105
+[2025-03-01T19:51:06.728+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 15 for task messages_load (Docker container failed: {'StatusCode': 1}; 2581)
+[2025-03-01T19:51:08.031+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-01T19:51:12.542+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

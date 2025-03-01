@@ -1,0 +1,42 @@
+[2025-03-01T19:05:51.360+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: new_messages.messages_load manual__2025-03-01T19:05:44.940583+00:00 [queued]>
+[2025-03-01T19:05:51.375+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: new_messages.messages_load manual__2025-03-01T19:05:44.940583+00:00 [queued]>
+[2025-03-01T19:05:51.376+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2025-03-01T19:05:51.407+0000] {taskinstance.py:1382} INFO - Executing <Task(DockerOperator): messages_load> on 2025-03-01 19:05:44.940583+00:00
+[2025-03-01T19:05:51.417+0000] {standard_task_runner.py:57} INFO - Started process 1476 to run task
+[2025-03-01T19:05:51.432+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'new_messages', 'messages_load', 'manual__2025-03-01T19:05:44.940583+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/mess_cluster.py', '--cfg-path', '/tmp/tmpty8yllap']
+[2025-03-01T19:05:51.441+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask messages_load
+[2025-03-01T19:05:51.542+0000] {task_command.py:416} INFO - Running <TaskInstance: new_messages.messages_load manual__2025-03-01T19:05:44.940583+00:00 [running]> on host ee0c4d96b42f
+[2025-03-01T19:05:51.725+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='new_messages' AIRFLOW_CTX_TASK_ID='messages_load' AIRFLOW_CTX_EXECUTION_DATE='2025-03-01T19:05:44.940583+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-01T19:05:44.940583+00:00'
+[2025-03-01T19:05:51.958+0000] {docker.py:367} INFO - Starting docker container from image messages-loader:latest
+[2025-03-01T19:05:52.112+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/api/client.py", line 275, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http+docker://localhost/v1.47/containers/create?name=task__messages__load
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/docker/operators/docker.py", line 399, in _run_image_with_mounts
+    self.container = self.cli.create_container(
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/api/container.py", line 440, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/api/container.py", line 457, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/api/client.py", line 281, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/api/client.py", line 277, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.8/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 409 Client Error for http+docker://localhost/v1.47/containers/create?name=task__messages__load: Conflict ("Conflict. The container name "/task__messages__load" is already in use by container "1d773bd6ce0f52d502140496915f69d220b9e97227dded5ca9832fb72aaf7472". You have to remove (or rename) that container to be able to reuse that name.")
+[2025-03-01T19:05:52.171+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=new_messages, task_id=messages_load, execution_date=20250301T190544, start_date=20250301T190551, end_date=20250301T190552
+[2025-03-01T19:05:52.246+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 9 for task messages_load (409 Client Error for http+docker://localhost/v1.47/containers/create?name=task__messages__load: Conflict ("Conflict. The container name "/task__messages__load" is already in use by container "1d773bd6ce0f52d502140496915f69d220b9e97227dded5ca9832fb72aaf7472". You have to remove (or rename) that container to be able to reuse that name."); 1476)
+[2025-03-01T19:05:52.332+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-01T19:05:52.596+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
