@@ -10,7 +10,6 @@ import click
 from natasha import Doc, Segmenter, MorphVocab, NewsEmbedding, NewsMorphTagger
 import nltk
 from nltk.corpus import stopwords
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By

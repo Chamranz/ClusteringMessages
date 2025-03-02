@@ -14,6 +14,9 @@ logging.basicConfig(level=logging.INFO)
 def train(data_path:str, n_topics: int, model_path:str):
     logging.info('Подгружаем данные')
     df = pd.read_csv(data_path)
+    print(len(df))
+    df.dropna(inplace=True)
+    print(len(df))
     texts = df['content'].tolist()
     logging.info('Подгрузили')
 
@@ -23,7 +26,7 @@ def train(data_path:str, n_topics: int, model_path:str):
 
     # Обучение модели LDA
     logging.info('Начинаем обучать')
-    lda = LDA(n_components=n_topics, max_iter=50, learning_method='batch', random_state=42)
+    lda = LDA(n_components=int(n_topics), max_iter=50, learning_method='batch', random_state=42)
     lda.fit(dataset)
     logging.info('Обучили')
     joblib.dump(lda, f'{model_path}.pkl')

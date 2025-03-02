@@ -31,12 +31,12 @@ def clustering(n_clusters:int, P:int, model_path: str, data_path: str,
     lda = joblib.load(model_path)
     embeddings = lda.transform(term_doc_matrix)
 
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    kmeans = KMeans(n_clusters=int(n_clusters), random_state=42)
     clust_labels = kmeans.fit_predict(embeddings)
     clust_centers = kmeans.cluster_centers_
 
     embeddings_to_tsne = np.concatenate((embeddings,clust_centers), axis=0)
-    tSNE =  TSNE(n_components=2, perplexity=P, random_state=42)
+    tSNE =  TSNE(n_components=2, perplexity=int(P), random_state=42)
     tsne_embeddings = tSNE.fit_transform(embeddings_to_tsne)
     tsne_embeddings, centroids_embeddings = np.split(tsne_embeddings, [len(clust_labels)], axis=0)
 

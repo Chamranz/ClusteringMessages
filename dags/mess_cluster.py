@@ -7,7 +7,7 @@ dockerops_kwargs = {
     "mounts": [
         Mount(
             source='/Users/kamrankurbanov/PycharmProjects/ClusterPsycho/data',
-            target='/opr/airflow/data/',
+            target='/opt/airflow/data',
             type="bind",
         )
     ]
@@ -27,7 +27,7 @@ def taskflow():
         task_id = "messages_load",
         container_name = "task__messages__load",
         image = "messages-loader:latest",
-        command = f"python Parsing.py --data_path {raw_data_path}, --page_number 6",
+        command = f"python Parsing.py --data_path {raw_data_path} --page_number 6",
         **dockerops_kwargs
     )
 
