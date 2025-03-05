@@ -1,2 +1,2 @@
 # ClusteringMessages
-Clustering messages with LDA and Kmeans. Docker+Airflow+MLflow
+Clustering messages with LDA and Kmeans. NLP+Docker+Airflow+MLflow
